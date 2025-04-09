@@ -1,0 +1,99 @@
+/* Estilo general de la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Estilo del encabezado (logo) */
+header {
+    background-color: #222;
+    padding: 10px;
+    text-align: center;
+}
+
+header .logo h1 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilo de los botones */
+button {
+    padding: 10px 20px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Estilo de los textos de información adicional */
+#zodiacMessage, #compatibilityMessage, #horoscopeMessage {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#zodiacInfo, #compatibility, #dailyHoroscope {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+body.dark-mode button {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode #zodiacMessage {
+    color: #fff;
+}
+
+body.dark-mode #zodiacInfo, body.dark-mode #compatibility, body.dark-mode #dailyHoroscope {
+    color: #ccc;
+}
+
+body.dark-mode header {
+    background-color: #000;
+}
+
+/* Posición del texto de alternancia entre modo oscuro y claro */
+.mode-toggle {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.mode-toggle span {
+    color: #444;
+}
+
+body.dark-mode .mode-toggle span {
+    color: #fff;
+}

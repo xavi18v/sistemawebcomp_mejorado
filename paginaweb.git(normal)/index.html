@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Signo Zodiacal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Logo de la marca -->
+    <header>
+        <div class="logo">
+            <h1>Wagner-Lee</h1>
+        </div>
+    </header>
+
+    <!-- Contenido de la página -->
+    <div class="container">
+        <h2>Descubre tu signo zodiacal</h2>
+        <input type="date" id="birthdate">
+        <button onclick="showZodiac()">Ver tu signo</button>
+        
+        <p id="zodiacMessage"></p>
+        
+        <button id="infoButton" style="display:none;" onclick="showZodiacInfo()">Saber más sobre tu signo</button>
+        
+        <div id="zodiacInfo" style="display:none;"></div>
+
+        <!-- Texto para alternar entre modo oscuro y claro -->
+        <div id="darkModeToggle" class="mode-toggle">
+            <span onclick="toggleDarkMode()">Modo oscuro</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
