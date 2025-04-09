@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wagner-Lee | Tu Signo Zodiacal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Wagner-Lee</h1>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="active">Zodíaco</a></li>
+                <li><a href="#">Horóscopo</a></li>
+                <li><a href="#">Compatibilidad</a></li>
+                <li><a href="#">Consultas</a></li>
+            </ul>
+            <div class="mode-toggle" id="darkModeToggle">
+                <i class="fas fa-moon"></i>
+                <span>Modo oscuro</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Descubre lo que las estrellas tienen para ti</h1>
+            <p>Conoce tu signo zodiacal y lo que revela sobre tu personalidad</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="zodiac-finder">
+            <h2>Descubre tu signo zodiacal</h2>
+            <div class="date-selector">
+                <label for="birthdate">Fecha de nacimiento:</label>
+                <input type="date" id="birthdate">
+                <button id="findZodiacBtn" class="btn-primary">Descubrir mi signo</button>
+            </div>
+        </section>
+
+        <!-- Result Section - Initially Hidden -->
+        <section id="resultSection" class="result-section hidden">
+            <div class="zodiac-card">
+                <div class="zodiac-header">
+                    <div id="zodiacIcon" class="zodiac-icon">
+                        <!-- Icon will be inserted by JS -->
+                    </div>
+                    <h2 id="zodiacTitle">Tu signo es</h2>
+                </div>
+                
+                <div class="zodiac-tabs">
+                    <div class="tab active" data-tab="characteristics">Características</div>
+                    <div class="tab" data-tab="compatibility">Compatibilidad</div>
+                    <div class="tab" data-tab="horoscope">Horóscopo diario</div>
+                </div>
+                
+                <div class="tab-content">
+                    <div id="characteristics" class="tab-pane active">
+                        <p id="zodiacInfo"></p>
+                        <div class="zodiac-traits">
+                            <div class="trait">
+                                <span class="trait-label">Elemento:</span>
+                                <span id="element" class="trait-value"></span>
+                            </div>
+                            <div class="trait">
+                                <span class="trait-label">Planeta regente:</span>
+                                <span id="planet" class="trait-value"></span>
+                            </div>
+                            <div class="trait">
+                                <span class="trait-label">Cualidad:</span>
+                                <span id="quality" class="trait-value"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="compatibility" class="tab-pane">
+                        <div class="compatibility-container">
+                            <div class="compatibility-section">
+                                <h3>Mejores compatibilidades</h3>
+                                <ul id="bestCompatibility" class="compatibility-list"></ul>
+                            </div>
+                            <div class="compatibility-section">
+                                <h3>Compatibilidades desafiantes</h3>
+                                <ul id="challengingCompatibility" class="compatibility-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="horoscope" class="tab-pane">
+                        <div class="horoscope-container">
+                            <h3>Tu horóscopo de hoy</h3>
+                            <p id="dailyHoroscope"></p>
+                            <div class="fortune-meters">
+                                <div class="meter">
+                                    <span>Amor:</span>
+                                    <div class="meter-bar" id="loveMeter"></div>
+                                </div>
+                                <div class="meter">
+                                    <span>Dinero:</span>
+                                    <div class="meter-bar" id="moneyMeter"></div>
+                                </div>
+                                <div class="meter">
+                                    <span>Salud:</span>
+                                    <div class="meter-bar" id="healthMeter"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="share-section">
+                <h3>Comparte tu signo</h3>
+                <div class="social-buttons">
+                    <button class="btn-social facebook"><i class="fab fa-facebook-f"></i></button>
+                    <button class="btn-social twitter"><i class="fab fa-twitter"></i></button>
+                    <button class="btn-social whatsapp"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-social instagram"><i class="fab fa-instagram"></i></button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Zodiac Signs Section -->
+        <section class="all-zodiac-signs">
+            <h2>Todos los signos zodiacales</h2>
+            <div class="zodiac-grid">
+                <div class="zodiac-item" data-sign="aries">
+                    <div class="zodiac-icon"><i class="fas fa-fire"></i></div>
+                    <h3>Aries</h3>
+                    <p>21 Mar - 19 Abr</p>
+                </div>
+                <div class="zodiac-item" data-sign="taurus">
+                    <div class="zodiac-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Tauro</h3>
+                    <p>20 Abr - 20 May</p>
+                </div>
+                <div class="zodiac-item" data-sign="gemini">
+                    <div class="zodiac-icon"><i class="fas fa-wind"></i></div>
+                    <h3>Géminis</h3>
+                    <p>21 May - 20 Jun</p>
+                </div>
+                <div class="zodiac-item" data-sign="cancer">
+                    <div class="zodiac-icon"><i class="fas fa-water"></i></div>
+                    <h3>Cáncer</h3>
+                    <p>21 Jun - 22 Jul</p>
+                </div>
+                <!-- Continuará con los demás signos -->
+                <div class="zodiac-item" data-sign="leo">
+                    <div class="zodiac-icon"><i class="fas fa-sun"></i></div>
+                    <h3>Leo</h3>
+                    <p>23 Jul - 22 Ago</p>
+                </div>
+                <div class="zodiac-item" data-sign="virgo">
+                    <div class="zodiac-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Virgo</h3>
+                    <p>23 Ago - 22 Sep</p>
+                </div>
+                <div class="zodiac-item" data-sign="libra">
+                    <div class="zodiac-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Libra</h3>
+                    <p>23 Sep - 22 Oct</p>
+                </div>
+                <div class="zodiac-item" data-sign="scorpio">
+                    <div class="zodiac-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Escorpio</h3>
+                    <p>23 Oct - 21 Nov</p>
+                </div>
+                <div class="zodiac-item" data-sign="sagittarius">
+                    <div class="zodiac-icon"><i class="fas fa-arrow-right"></i></div>
+                    <h3>Sagitario</h3>
+                    <p>22 Nov - 21 Dic</p>
+                </div>
+                <div class="zodiac-item" data-sign="capricorn">
+                    <div class="zodiac-icon"><i class="fas fa-mountain"></i></div>
+                    <h3>Capricornio</h3>
+                    <p>22 Dic - 19 Ene</p>
+                </div>
+                <div class="zodiac-item" data-sign="aquarius">
+                    <div class="zodiac-icon"><i class="fas fa-tint-slash"></i></div>
+                    <h3>Acuario</h3>
+                    <p>20 Ene - 18 Feb</p>
+                </div>
+                <div class="zodiac-item" data-sign="pisces">
+                    <div class="zodiac-icon"><i class="fas fa-fish"></i></div>
+                    <h3>Piscis</h3>
+                    <p>19 Feb - 20 Mar</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter-container">
+            <h2>Recibe tu horóscopo diario</h2>
+            <p>Suscríbete para recibir predicciones personalizadas en tu correo</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Tu correo electrónico" required>
+                <button type="submit" class="btn-primary">Suscribirme</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Wagner-Lee</h2>
+                <p>Conectando con las estrellas desde 2023</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Explorar</h3>
+                    <ul>
+                        <li><a href="#">Signos zodiacales</a></li>
+                        <li><a href="#">Horóscopo diario</a></li>
+                        <li><a href="#">Compatibilidad</a></li>
+                        <li><a href="#">Tarot</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Sobre nosotros</h3>
+                    <ul>
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Síguenos</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023-2025 Wagner-Lee Astrología. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
